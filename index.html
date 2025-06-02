@@ -19,18 +19,20 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 90vw;
       padding: 1rem;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      animation: fadeIn 1.5s ease-in;
     }
 
     img {
       max-width: 100%;
       height: auto;
       margin-bottom: 1rem;
+      border-radius: 8px;
     }
 
     h1 {
@@ -56,12 +58,23 @@
       color: #777;
     }
 
-    @media (max-height: 700px) {
-      p, h1 {
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p, .highlight {
         font-size: 0.95rem;
       }
-      .highlight {
-        font-size: 0.95rem;
+
+      footer {
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -69,6 +82,8 @@
 <body>
   <div class="container">
     <img src="itfanatix.jpg" alt="IT Fanatix Logo" />
+    <h1>IT Fanatix</h1>
+    <p>Crazy about IT – Serious about Support</p>
     <p>We are not just passionate about technology, we are <strong>obsessed</strong> with delivering innovative solutions and exceptional support that keep your systems running seamlessly.</p>
     <p class="highlight">INNOVATION IS IN PROGRESS. STAY TUNED….</p>
     <footer>&copy; 2025 IT Fanatix. All rights reserved.</footer>
