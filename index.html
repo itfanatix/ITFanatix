@@ -4,58 +4,126 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT Fanatix | Innovative IT Support</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100vh;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #eef2f6;
+      color: #2c3e50;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* Align content to the start */
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 90vw;
-      padding: 1rem;
+      max-width: 900px;
+      padding: 2rem;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       animation: fadeIn 1.5s ease-in;
+      flex-grow: 1;
+      background-color: #ffffff; /* Apply background to the whole container */
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin: 2rem 0; /* Add margin to top and bottom for container */
     }
 
+    /* Removed .main-content as its styling is now on .container */
+    /* Removed #services-section styling as it's integrated */
+
     img {
-      max-width: 100%;
+      max-width: 50%; /* Made the logo smaller */
       height: auto;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       border-radius: 8px;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #002e5d;
-      margin: 0.3rem 0;
+      margin: 0.5rem 0 1.5rem 0;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #002e5d;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        color: #0078d7;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
     }
 
     p {
       font-size: 1rem;
-      margin: 0.3rem 0;
+      margin: 0.5rem 0;
+      color: #4a4a4a;
+      text-align: center; /* Default paragraph text alignment */
+    }
+
+    .services-list-item p { /* Specific styling for service descriptions */
+        text-align: left;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+        text-align: left;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul li {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        color: #2c3e50;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    ul li::before {
+        content: '•';
+        color: #0078d7;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
     }
 
     .highlight {
       color: #0078d7;
-      font-weight: 600;
-      margin-top: 0.8rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
     }
 
+    /* Removed .navbar styling as the link is removed */
+
     footer {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: #777;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #666;
+      padding-bottom: 1.5rem;
+      width: 100%; /* Ensure footer spans full width */
+      text-align: center;
     }
 
     @keyframes fadeIn {
@@ -64,13 +132,42 @@
     }
 
     /* Responsive tweaks */
+    @media (max-width: 768px) {
+        .container {
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+    }
+
     @media (max-width: 480px) {
+      .container {
+          padding: 1rem;
+          margin: 0.5rem 0;
+      }
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
       }
 
-      p, .highlight {
-        font-size: 0.95rem;
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      h3 {
+          font-size: 1.1rem;
+      }
+
+      p, ul li, .highlight {
+        font-size: 0.9rem;
       }
 
       footer {
@@ -82,9 +179,44 @@
 <body>
   <div class="container">
     <img src="itfanatix.jpg" alt="IT Fanatix Logo" />
-    <p>We are not just passionate about technology, we are <strong>obsessed</strong> with delivering innovative solutions and exceptional support that keep your systems running seamlessly.</p>
-    <p class="highlight">INNOVATION IS IN PROGRESS. STAY TUNED….</p>
-    <footer>&copy; 2025 IT Fanatix. All rights reserved.</footer>
+    <p>With over two decades of hands-on experience across diverse IT domains, we specialize in providing comprehensive, reliable, and scalable IT support services for businesses of all sizes. Whether you're a startup looking to build your IT infrastructure or an established company seeking to optimize performance, we've got you covered.</p>
+
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>20+ Years of Enterprise-Level IT Experience</li>
+      <li>Cross-Platform Expertise (Windows, Linux, Cloud, Hybrid)</li>
+      <li>Custom-Tailored IT Solutions</li>
+      <li>Proactive Support & Monitoring</li>
+      <li>Affordable Pricing for SMEs</li>
+    </ul>
+
+
+    <h2>Our Core IT Services</h2>
+    <h3>Windows & Linux System Administration</h3>
+    <p class="services-list-item">We support all versions of Windows, including Windows Server, as well as some Linux distributions. From user management to security hardening and automation, we ensure your systems run smoothly and securely.</p>
+
+    <h3>Cloud Infrastructure & Virtualization</h3>
+    <p class="services-list-item">Harness the power of the cloud with our expertise in Azure, AWS, Digital Ocean, and other platforms. We help you deploy, manage, and scale your virtual instances. Our virtualization experience spans Hyper-V, VMware, Proxmox, and VirtualBox – helping you do more with less.</p>
+
+    <h3>Networking Solutions</h3>
+    <p class="services-list-item">From LAN to WAN configuration, we ensure your network infrastructure is fast, secure, and reliable. Whether it’s optimizing internal connectivity or securing remote access, we build networks that work for your business.</p>
+
+    <h3>Web Hosting & Server Management</h3>
+    <p class="services-list-item">We provide robust web hosting solutions across Windows and Linux servers. Count on us for performance tuning, uptime reliability, and proactive management of your hosting environment.</p>
+
+    <h3>Email Systems & Collaboration Tools</h3>
+    <p class="services-list-item">Stay connected with our setup and support for Microsoft 365 and Google Workspace. We handle migrations, configurations, and ongoing support to keep your business communicating seamlessly.</p>
+
+    <h3>Advanced Mail Solutions for Marketing & Transactions</h3>
+    <p class="services-list-item">Maximize engagement and delivery with our integration and management of platforms like Mailchimp, Mandrill, and SendGrid. Whether it’s newsletters or transactional alerts, we ensure your messages reach the inbox.</p>
+
+    <h3>Cybersecurity & Firewall Protection</h3>
+    <p class="services-list-item">Protect your business with expert configuration and management of firewalls including SonicWall, Sophos, and Linux iptables. We design secure environments and implement industry best practices to keep threats at bay.</p>
+
+    <p class="highlight">Let us handle your IT – so you can focus on growing your business.</p>
+    <p class="highlight">Contact us today.</p>
+
   </div>
+  <footer>&copy; 2025 IT Fanatix. All rights reserved.</footer>
 </body>
 </html>
