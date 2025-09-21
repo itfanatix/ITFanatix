@@ -1,222 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT Fanatix | Innovative IT Support</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IT Fanatix — Professional IT Support & Managed Services</title>
+  <meta name="description" content="IT Fanatix | 20+ years enterprise IT experience — managed IT, cloud, networking, cybersecurity, email & hosting solutions for SMEs." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#0ea5a4;
+      --white:#f8fafc;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071023 0%, #081827 60%);
+      color:var(--white);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-size:16px;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .logo{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);
+      display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:0.6px;
+      box-shadow:0 6px 18px rgba(10,15,20,0.6), inset 0 -6px 12px rgba(255,255,255,0.06);
+      flex:0 0 56px;
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;font-size:0.95rem;}
+    nav a.cta{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:10px;color:var(--white)}
+    main .hero{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:28px;
+      align-items:center;
+      margin-top:28px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:28px;border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    h1{font-size:clamp(22px, 3.8vw, 34px);margin:0 0 10px 0;line-height:1.05}
+    p.lead{color:var(--muted);margin:0 0 18px 0}
+    .button{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;
+      background:linear-gradient(90deg,var(--accent),#06b6d4);color:#022027;font-weight:700;border:none;
+      text-decoration:none;box-shadow:0 8px 26px rgba(13,160,153,0.18);
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: 'Inter', sans-serif;
-      background-color: #eef2f6;
-      color: #2c3e50;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start; /* Align content to the start */
-      line-height: 1.6;
+    /* service grid */
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+    .service{
+      background:var(--glass);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .service svg{width:36px;height:36px;flex-shrink:0;opacity:0.95}
+    .service h4{margin:0 0 6px 0;font-size:1rem}
+    .service p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* aside quick contact */
+    .aside{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .kpi{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    .kpi strong{display:block;font-size:1.35rem}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h5{margin:0 0 6px 0;font-size:1rem}
+    .feature p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    footer{margin-top:36px;padding:18px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-links a{color:var(--muted);text-decoration:none;margin-left:12px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; }
+      .features{grid-template-columns:repeat(2,1fr)}
+      .services{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      nav a{display:none}
+      .container{padding:18px}
+      .features{grid-template-columns:1fr}
     }
 
-    .container {
-      max-width: 900px;
-      padding: 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      animation: fadeIn 1.5s ease-in;
-      flex-grow: 1;
-      background-color: #ffffff; /* Apply background to the whole container */
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      margin: 2rem 0; /* Add margin to top and bottom for container */
-    }
-
-    /* Removed .main-content as its styling is now on .container */
-    /* Removed #services-section styling as it's integrated */
-
-    img {
-      max-width: 50%; /* Made the logo smaller */
-      height: auto;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #002e5d;
-      margin: 0.5rem 0 1.5rem 0;
-      font-weight: 800;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #002e5d;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    h3 {
-        font-size: 1.3rem;
-        color: #0078d7;
-        margin-top: 1.5rem;
-        margin-bottom: 0.8rem;
-        font-weight: 600;
-    }
-
-    p {
-      font-size: 1rem;
-      margin: 0.5rem 0;
-      color: #4a4a4a;
-      text-align: center; /* Default paragraph text alignment */
-    }
-
-    .services-list-item p { /* Specific styling for service descriptions */
-        text-align: left;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 1rem 0;
-        text-align: left;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    ul li {
-        font-size: 1rem;
-        margin-bottom: 0.6rem;
-        color: #2c3e50;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-
-    ul li::before {
-        content: '•';
-        color: #0078d7;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-    }
-
-    .highlight {
-      color: #0078d7;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    /* Removed .navbar styling as the link is removed */
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #666;
-      padding-bottom: 1.5rem;
-      width: 100%; /* Ensure footer spans full width */
-      text-align: center;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-        .container {
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-        h1 {
-            font-size: 2rem;
-        }
-        h2 {
-            font-size: 1.6rem;
-        }
-        h3 {
-            font-size: 1.2rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-          padding: 1rem;
-          margin: 0.5rem 0;
-      }
-      h1 {
-        font-size: 1.7rem;
-        margin-bottom: 1rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      h3 {
-          font-size: 1.1rem;
-      }
-
-      p, ul li, .highlight {
-        font-size: 0.9rem;
-      }
-
-      footer {
-        font-size: 0.75rem;
-      }
-    }
+    /* small utility */
+    .divider{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);margin:18px 0;border-radius:6px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--muted);font-size:0.9rem}
+    .small{font-size:0.92rem}
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="itfanatix.jpg" alt="IT Fanatix Logo" />
-    <p>With over two decades of hands-on experience across diverse IT domains, we specialize in providing comprehensive, reliable, and scalable IT support services for businesses of all sizes. Whether you're a startup looking to build your IT infrastructure or an established company seeking to optimize performance, we've got you covered.</p>
+  <div class="container" role="main">
+    <header>
+  <a class="brand" href="/">
+    <img src="IT Fanatix Logo.jpg" alt="IT Fanatix logo" style="height:120px; width:auto; display:block;">
+  </a>
+  <nav aria-label="Primary" style="align-self:center;">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="mailto:sales@itfanatix.com" class="cta">Contact Us</a>
+  </nav>
+</header>
 
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>20+ Years of Enterprise-Level IT Experience</li>
-      <li>Cross-Platform Expertise (Windows, Linux, Cloud, Hybrid)</li>
-      <li>Custom-Tailored IT Solutions</li>
-      <li>Proactive Support & Monitoring</li>
-      <li>Affordable Pricing for SMEs</li>
-    </ul>
+    <main>
+      <section class="hero">
+        <div class="hero-card" aria-labelledby="hero-title">
+          <h1 id="hero-title">Enterprise-level IT support for growing businesses</h1>
+          <p class="lead">20+ years of hands-on experience across Windows, Linux, cloud, networking and cybersecurity. We provide tailored IT, hosting and email solutions that keep your business secure and always-on.</p>
 
+          <div class="chips" aria-hidden="true">
+            <span class="chip">Azure & AWS</span>
+            <span class="chip">M365 / Google Workspace</span>
+            <span class="chip">Firewall & Security</span>
+          </div>
 
-    <h2>Our Core IT Services</h2>
-    <h3>Windows & Linux System Administration</h3>
-    <p class="services-list-item">We support all versions of Windows, including Windows Server, as well as some Linux distributions. From user management to security hardening and automation, we ensure your systems run smoothly and securely.</p>
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="button" href="mailto:sales@itfanatix.com">Get a Quote</a>
+            <a style="align-self:center;color:var(--muted);text-decoration:none;font-weight:600" href="#services">View Services →</a>
+          </div>
 
-    <h3>Cloud Infrastructure & Virtualization</h3>
-    <p class="services-list-item">Harness the power of the cloud with our expertise in Azure, AWS, Digital Ocean, and other platforms. We help you deploy, manage, and scale your virtual instances. Our virtualization experience spans Hyper-V, VMware, Proxmox, and VirtualBox – helping you do more with less.</p>
+          <div class="divider" aria-hidden="true"></div>
 
-    <h3>Networking Solutions</h3>
-    <p class="services-list-item">From LAN to WAN configuration, we ensure your network infrastructure is fast, secure, and reliable. Whether it’s optimizing internal connectivity or securing remote access, we build networks that work for your business.</p>
+          <section id="services" aria-labelledby="services-heading">
+            <h3 id="services-heading" style="margin:0 0 10px 0">Core services</h3>
+            <div class="services" role="list">
+              <article class="service" role="listitem" aria-labelledby="s1">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div>
+                  <h4 id="s1">System Administration</h4>
+                  <p>Windows & Linux server administration, patching, monitoring and automation.</p>
+                </div>
+              </article>
 
-    <h3>Web Hosting & Server Management</h3>
-    <p class="services-list-item">We provide robust web hosting solutions across Windows and Linux servers. Count on us for performance tuning, uptime reliability, and proactive management of your hosting environment.</p>
+              <article class="service" role="listitem" aria-labelledby="s2">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6 6h.01M6 18h.01M18 6h.01M18 18h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div>
+                  <h4 id="s2">Networking & WAN</h4>
+                  <p>LAN/WAN design, VPNs, SD-WAN, wireless and performance tuning.</p>
+                </div>
+              </article>
 
-    <h3>Email Systems & Collaboration Tools</h3>
-    <p class="services-list-item">Stay connected with our setup and support for Microsoft 365 and Google Workspace. We handle migrations, configurations, and ongoing support to keep your business communicating seamlessly.</p>
+              <article class="service" role="listitem" aria-labelledby="s3">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 22v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5 7l14 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div>
+                  <h4 id="s3">Cloud & Virtualization</h4>
+                  <p>Architecture, migrations and ongoing cloud cost/availability optimisation.</p>
+                </div>
+              </article>
 
-    <h3>Advanced Mail Solutions for Marketing & Transactions</h3>
-    <p class="services-list-item">Maximize engagement and delivery with our integration and management of platforms like Mailchimp, Mandrill, and SendGrid. Whether it’s newsletters or transactional alerts, we ensure your messages reach the inbox.</p>
+              <article class="service" role="listitem" aria-labelledby="s4">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div>
+                  <h4 id="s4">Email & Collaboration</h4>
+                  <p>Migrations, deliverability, transactional email and platform management (M365, Google).</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
 
-    <h3>Cybersecurity & Firewall Protection</h3>
-    <p class="services-list-item">Protect your business with expert configuration and management of firewalls including SonicWall, Sophos, and Linux iptables. We design secure environments and implement industry best practices to keep threats at bay.</p>
+        <aside class="aside" aria-labelledby="contact-heading">
+          <h3 id="contact-heading" style="margin:0 0 8px 0">Quick contact</h3>
 
-    <p class="highlight">Let us handle your IT – so you can focus on growing your business.</p>
-    <p class="highlight">Contact us today - sales@itfanatix.com</p>
+          <div class="kpi">
+            <div>
+              <strong>20+</strong>
+              <div class="muted small">Years experience</div>
+            </div>
+            <div style="margin-left:auto;text-align:right">
+              <strong>SME Focus</strong>
+              <div class="muted small">Affordable, scalable plans</div>
+            </div>
+          </div>
 
+          <p class="muted small">Email</p>
+          <p style="margin:6px 0 12px 0"><a href="mailto:sales@itfanatix.com" style="color:var(--white);text-decoration:none;font-weight:700">sales@itfanatix.com</a></p>
+
+          <div class="divider" aria-hidden="true"></div>
+
+          <h4 style="margin:0 0 8px 0">Why clients choose us</h4>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:0.95rem">
+            <li>Proactive monitoring & SLAs</li>
+            <li>Security-first designs</li>
+            <li>Transparent monthly plans</li>
+          </ul>
+
+          <div style="margin-top:14px">
+            <a class="button" href="mailto:sales@itfanatix.com">Request a Call</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" style="margin-top:28px">
+        <div class="hero-card">
+          <h3 style="margin:0 0 10px 0">About IT Fanatix</h3>
+          <p class="muted small">With two decades of enterprise-level experience across multiple IT domains, we design, implement and support systems that keep businesses running. From server hardening and email deliverability to firewalls and cloud cost optimisation — we act as an extension of your team so you can focus on growth.</p>
+
+          <div class="features" style="margin-top:16px">
+            <div class="feature">
+              <h5>Managed Backups</h5>
+              <p class="muted">Regular, tested backups and disaster recovery planning.</p>
+            </div>
+            <div class="feature">
+              <h5>Firewall & Security</h5>
+              <p class="muted">SonicWall, Sophos, iptables hardening and continuous monitoring.</p>
+            </div>
+            <div class="feature">
+              <h5>Performance Tuning</h5>
+              <p class="muted">Server & network optimisation for best availability and throughput.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> IT Fanatix. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:sales@itfanatix.com">Contact</a>
+      </div>
+    </footer>
   </div>
-  <footer>&copy; 2025 IT Fanatix. All rights reserved.</footer>
+
+  <script>
+    // small script for year and accessibility
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
